@@ -1,0 +1,3 @@
+/home/admin/GPUScanner/build/CMakeFiles/gpuscan.dir
+/home/admin/GPUScanner/build/CMakeFiles/edit_cache.dir
+/home/admin/GPUScanner/build/CMakeFiles/rebuild_cache.dir
