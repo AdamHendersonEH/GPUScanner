@@ -70,5 +70,24 @@ int main()
 
     std::cout << "GPU: " << deviceName << '\n';
 
+    cl_device_svm_capabilities svmCapabilities = 0;
+
+    clGetDeviceInfo(
+        device,
+        CL_DEVICE_SVM_CAPABILITIES,
+        sizeof(svmCapabilities),
+        &svmCapabilities,
+        nullptr
+    );
+
+    if (svmCapabilities == 0)
+    {
+        std::cout << "SVM not supported on this device.\n";
+    }
+    else
+    {
+        std::cout << "SVM supported on this device.\n";
+    }
+    
     return 0;
 }
