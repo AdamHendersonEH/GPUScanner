@@ -12,3 +12,7 @@ sudo apt install g+ opencl-clhpp-headers
 sudo apt install intel-opencl-icd
 
 If using other GPU, find and run correct openCl ICD for vendor.
+
+Run using cmake --build build --parallel 2
+
+./build/gpuscan
