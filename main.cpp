@@ -106,7 +106,7 @@ int main()
         &result
     );
 
-    int A[] = {0,0,0,0,0,0,0,0,0,0};
+    int A[] = {};
     for (int i= 0; i < 10; ++i)
     {
         std::cout << "Enter value for A[" << i << "]: ";
