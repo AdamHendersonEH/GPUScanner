@@ -88,6 +88,44 @@ int main()
     {
         std::cout << "SVM supported on this device.\n";
     }
-    
+
+    cl_context context = clCreateContext(
+        nullptr,
+        1,
+        &device,
+        nullptr,
+        nullptr,
+        &result
+    );
+
+    cl_mem buffer = clCreateBuffer(
+        context,
+        CL_MEM_READ_WRITE,
+        10 * sizeof(int),
+        nullptr,
+        &result
+    );
+
+    int A[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+    cl_command_queue queue = clCreateCommandQueueWithProperties(
+        context,
+        device,
+        0,
+        &result
+    );
+
+    clEnqueueWriteBuffer(queue, buffer, CL_TRUE, 0, sizeof(int) * 10, A, 0, nullptr, nullptr);
+
+    int rA[10];
+    clEnqueueReadBuffer(queue, buffer, CL_TRUE, 0, sizeof(int) * 10, rA, 0, nullptr, nullptr);
+    clFinish(queue);
+
+    std::cout << "Buffer contents: ";
+    for (int i =0; i < 10; ++i){
+        std::cout << rA[i] << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }
