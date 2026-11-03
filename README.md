@@ -3,7 +3,7 @@ Commands to Set Up Environment:
 Download VSCode and install via CLI.
 
 sudo apt update
-sudo apt install build-essential cake clinfo opencl-headers ocl-icd-opencl-dev
+sudo apt install build-essential cmake clinfo opencl-headers ocl-icd-opencl-dev
 
 sudo apt install pocl-opencl-icd
 
