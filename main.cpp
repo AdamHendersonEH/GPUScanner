@@ -122,6 +122,7 @@ int main()
     );
 
     clEnqueueWriteBuffer(queue, buffer, CL_TRUE, 0, sizeof(int) * 10, A, 0, nullptr, nullptr);
+    std::cout << "Buffer writtent to " << deviceName << std::endl;
 
     int rA[10];
     clEnqueueReadBuffer(queue, buffer, CL_TRUE, 0, sizeof(int) * 10, rA, 0, nullptr, nullptr);
