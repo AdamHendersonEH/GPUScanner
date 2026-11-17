@@ -154,4 +154,55 @@ CMakeFiles/gpuscan.dir/main.cpp.o: /home/admin/GPUScanner/main.cpp \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
- /usr/include/c++/11/bits/vector.tcc
+ /usr/include/c++/11/bits/vector.tcc /usr/include/yara.h \
+ /usr/include/yara/compiler.h /usr/include/setjmp.h \
+ /usr/include/yara/ahocorasick.h /usr/include/yara/atoms.h \
+ /usr/include/yara/limits.h /usr/include/yara/utils.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
+ /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+ /usr/include/yara/strutils.h /usr/include/assert.h /usr/include/string.h \
+ /usr/include/strings.h /usr/include/yara/integers.h \
+ /usr/include/inttypes.h /usr/include/yara/re.h /usr/include/yara/arena.h \
+ /usr/include/yara/stream.h /usr/include/yara/sizedstr.h \
+ /usr/include/yara/utils.h /usr/include/yara/types.h \
+ /usr/include/yara/bitmask.h /usr/include/yara/hash.h \
+ /usr/include/yara/stopwatch.h /usr/include/x86_64-linux-gnu/sys/time.h \
+ /usr/include/yara/threading.h /usr/include/yara/notebook.h \
+ /usr/include/yara/filemap.h /usr/include/yara/error.h \
+ /usr/include/yara/filemap.h /usr/include/yara/hash.h \
+ /usr/include/yara/libyara.h /usr/include/yara/mem.h \
+ /usr/include/yara/modules.h /usr/include/c++/11/math.h \
+ /usr/include/c++/11/cmath /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+ /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+ /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+ /usr/include/c++/11/bits/specfun.h /usr/include/c++/11/limits \
+ /usr/include/c++/11/tr1/gamma.tcc \
+ /usr/include/c++/11/tr1/special_function_util.h \
+ /usr/include/c++/11/tr1/bessel_function.tcc \
+ /usr/include/c++/11/tr1/beta_function.tcc \
+ /usr/include/c++/11/tr1/ell_integral.tcc \
+ /usr/include/c++/11/tr1/exp_integral.tcc \
+ /usr/include/c++/11/tr1/hypergeometric.tcc \
+ /usr/include/c++/11/tr1/legendre_function.tcc \
+ /usr/include/c++/11/tr1/modified_bessel_func.tcc \
+ /usr/include/c++/11/tr1/poly_hermite.tcc \
+ /usr/include/c++/11/tr1/poly_laguerre.tcc \
+ /usr/include/c++/11/tr1/riemann_zeta.tcc /usr/include/yara/error.h \
+ /usr/include/yara/exec.h /usr/include/yara/rules.h \
+ /usr/include/yara/scanner.h /usr/include/yara/scan.h \
+ /usr/include/yara/libyara.h /usr/include/yara/object.h \
+ /usr/include/yara/object.h /usr/include/yara/scanner.h \
+ /usr/include/yara/stream.h /usr/include/yara/utils.h

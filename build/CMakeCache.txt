@@ -189,6 +189,18 @@ OpenCL_INCLUDE_DIR:PATH=/usr/include
 //Path to a library.
 OpenCL_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libOpenCL.so
 
+//Arguments to supply to pkg-config
+PKG_CONFIG_ARGN:STRING=
+
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=PKG_CONFIG_EXECUTABLE-NOTFOUND
+
+//Path to a file.
+YARA_INCLUDE_DIRS:PATH=/usr/include
+
+//Path to a library.
+YARA_LIBRARIES:FILEPATH=/usr/lib/x86_64-linux-gnu/libyara.so
+
 //Value Computed by CMake
 gpuscan_BINARY_DIR:STATIC=/home/admin/GPUScanner/build
 
@@ -338,4 +350,8 @@ OPENCL_VERSION_2_2:INTERNAL=1
 OpenCL_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OpenCL_LIBRARY
 OpenCL_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_ARGN
+PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 

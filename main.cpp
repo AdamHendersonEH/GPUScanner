@@ -1,6 +1,19 @@
 #include <iostream>
 #include <CL/cl.h>
 #include <vector>
+#include <yara.h>
+
+int yaraCallback(YR_SCAN_CONTEXT* context, int message,
+                 void* messageData, void* userData)
+{
+    if (message == CALLBACK_MSG_RULE_MATCHING)
+    {
+        YR_RULE* rule = static_cast<YR_RULE*>(messageData);
+        std::cout << "YARA match: " << rule->identifier << '\n';
+        *static_cast<int*>(userData) += 1;
+    }
+    return CALLBACK_CONTINUE;
+}
 
 int main()
 {
@@ -140,6 +153,57 @@ int main()
         std::cout << rA[i] << " ";
     }
     std::cout << std::endl;
+
+    const char* detect_1234 = R"(
+    rule contains_1234
+    {
+    strings:
+        $a = { D2 04 00 00 }
+    condition:
+        $a
+    }
+    )";
+
+    if (yr_initialize() != ERROR_SUCCESS)
+    {
+        std::cerr << "Failed to initialize YARA." << std::endl;
+        return 1;
+    }
+
+    YR_COMPILER* compiler = nullptr;
+    YR_RULES* rules = nullptr;
+
+    if (yr_compiler_create(&compiler) != ERROR_SUCCESS)
+    {
+        std::cerr << "Failed to create YARA compiler." << std::endl;
+        yr_finalize();
+        return 1;
+    }
+
+    if (yr_compiler_add_string(compiler, detect_1234, nullptr) != ERROR_SUCCESS)
+    {
+        std::cerr << "Failed to add string to YARA compiler." << std::endl;
+        yr_compiler_destroy(compiler);
+        yr_finalize();
+        return 1;
+    }
+
+    yr_compiler_get_rules(compiler, &rules);
+
+    int matches = 0;
+    int scan_result = yr_rules_scan_mem(rules, reinterpret_cast<const uint8_t*>(rA.data()), bufferSize, 0, yaraCallback, &matches, 1000);
+
+    if (scan_result == ERROR_SUCCESS)
+    {
+        std::cout << "YARA scan completed successfully." << std::endl;
+    }
+    else
+    {
+        std::cerr << "YARA scan failed with error code: " << scan_result << std::endl;
+    }
+    yr_rules_destroy(rules);
+    yr_compiler_destroy(compiler);
+    yr_finalize();
 
     clReleaseMemObject(buffer);
     clReleaseCommandQueue(queue);
