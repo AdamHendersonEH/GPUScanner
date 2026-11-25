@@ -193,6 +193,11 @@ int main()
     int matches = 0;
     int scan_result = yr_rules_scan_mem(rules, reinterpret_cast<const uint8_t*>(rA.data()), bufferSize, 0, yaraCallback, &matches, 1000);
 
+    if (matches < 1)
+    {
+        std::cout << "No YARA matches found." << std::endl;
+    }
+
     if (scan_result == ERROR_SUCCESS)
     {
         std::cout << "YARA scan completed successfully." << std::endl;
@@ -201,6 +206,7 @@ int main()
     {
         std::cerr << "YARA scan failed with error code: " << scan_result << std::endl;
     }
+    
     yr_rules_destroy(rules);
     yr_compiler_destroy(compiler);
     yr_finalize();
