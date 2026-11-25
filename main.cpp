@@ -116,6 +116,16 @@ int main()
         nullptr,
         &result
     );
+    
+    if (context == nullptr)
+    {
+        std::cout << "Failed to create OpenCL context.\n";
+        return 1;
+    }
+    else
+    {
+        std::cout << "OpenCL context created successfully.\n";
+    }
 
     constexpr size_t N = 5;
     constexpr size_t bufferSize = N * sizeof(int);
@@ -128,7 +138,18 @@ int main()
         &result
     );
 
-     std::vector<int> A(N), rA(N);
+    if (buffer == nullptr)
+    {
+        std::cout << "Failed to create OpenCL buffer.\n";
+        clReleaseContext(context);
+        return 1;
+    }
+    else
+    {
+        std::cout << "OpenCL buffer created successfully.\n";
+    }
+
+    std::vector<int> A(N), rA(N);
     for (int i = 0; i < N; ++i)
     {
         std::cout << "Enter value for A[" << i << "]: ";
@@ -142,6 +163,18 @@ int main()
         0,
         &result
     );
+
+    if (queue == nullptr)
+    {
+        std::cout << "Failed to create OpenCL command queue.\n";
+        clReleaseMemObject(buffer);
+        clReleaseContext(context);
+        return 1;
+    }
+    else
+    {
+        std::cout << "OpenCL command queue created successfully.\n";
+    }
 
     clEnqueueWriteBuffer(queue, buffer, CL_TRUE, 0, bufferSize, A.data(), 0, nullptr, nullptr);
 
@@ -206,7 +239,7 @@ int main()
     {
         std::cerr << "YARA scan failed with error code: " << scan_result << std::endl;
     }
-    
+
     yr_rules_destroy(rules);
     yr_compiler_destroy(compiler);
     yr_finalize();
